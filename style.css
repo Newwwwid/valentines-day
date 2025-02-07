@@ -20,8 +20,8 @@ body {
 }
 
 #question {
-    font-family: 'Sacramento', cursive; /* Apply Sacramento font to the question */
-    font-size: 52px; /* Set font size for the question */
+    font-family: 'Dancing Script', cursive; /* Changed font */
+    font-size: 52px;
 }
 
 #options {
