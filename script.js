@@ -18,9 +18,10 @@ function selectOption(option) {
             createFloatingHearts(); // Trigger floating hearts effect
         }, 500); // Match the duration of the // Match the duration of the CSS transition
     } else if (option === 'no') {
-        document.getElementById('no-button').innerText = 'miss click?';
-    } else {
-        alert('Invalid option!');
+        const noSound = document.getElementById('no-sound');
+        noSound.currentTime = 0; // Reset audio to start
+        noSound.play();
+        document.getElementById('no-button').innerText = 'You sure?';
     }
 }
 
@@ -52,37 +53,54 @@ function createActionButtons() {
     const buttonsContainer = document.createElement('div');
     buttonsContainer.id = 'action-buttons';
     
-    // Sound Button
-    const soundButton = document.createElement('button');
-    soundButton.innerHTML = '🔊';
-    soundButton.onclick = toggleSound;
+   // Bye-Bye Sound Button
+    const byeButton = document.createElement('button');
+    byeButton.innerHTML = '🎵';
+    byeButton.onclick = () => {
+        document.getElementById('bye-sound').play();
+    };
     
     // Rose Button
     const roseButton = document.createElement('button');
     roseButton.innerHTML = '🌹';
     roseButton.onclick = () => createEmojiEffect('🌹');
     
-    // Heart Button
+     // Heart Button
     const heartButton = document.createElement('button');
     heartButton.innerHTML = '❤️';
-    heartButton.onclick = () => createEmojiEffect('❤️');
+    heartButton.onclick = () => {
+        createEmojiEffect('❤️');
+        createHeartsAnimation();
+    };
 
-    buttonsContainer.append(soundButton, roseButton, heartButton);
+   buttonsContainer.append(byeButton, roseButton, heartButton);
     document.body.appendChild(buttonsContainer);
 }
-
-function toggleSound() {
-    const audio = document.getElementById('valentine-sound');
-    const button = document.querySelector('#action-buttons button:first-child');
-    
-    if (audio.paused) {
-        audio.play();
-        button.innerHTML = '🔊';
-    } else {
-        audio.pause();
-        button.innerHTML = '🔇';
+// Add new confetti function
+function createConfetti() {
+    const confettiContainer = document.getElementById('confetti-container');
+    for(let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}deg, 100%, 50%)`;
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        confettiContainer.appendChild(confetti);
     }
 }
+// Add hearts animation function
+function createHeartsAnimation() {
+    for(let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDelay = Math.random() * 0.5 + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+    
 
 function createEmojiEffect(emoji) {
     const emojiElement = document.createElement('div');
