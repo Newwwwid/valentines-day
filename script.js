@@ -3,34 +3,59 @@
 // Function to handle button click events
 function selectOption(option) {
     if (option === 'yes') {
-        flashRainbowColors(() => {
-            document.getElementById('question').style.display = 'none';
+        // Fade out the question and options
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        
+        questionElement.style.opacity = '0';
+        optionsElement.style.opacity = '0';
+
+        // Wait for the transition to finish before displaying the cat-heart
+        setTimeout(() => {
+            questionElement.style.display = 'none';
+            optionsElement.style.display = 'none';
             displayCatHeart();
-        });
+            launchConfetti(); // Trigger confetti effect
+        }, 500); // Match the duration of the CSS transition
     } else if (option === 'no') {
         document.getElementById('no-button').innerText = 'You sure?';
-        const yesButton = document.getElementById('yes-button');
-        const currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        const newSize = parseFloat(currentFontSize) * 2;
-        yesButton.style.fontSize = `${newSize}px`;
     } else {
         alert('Invalid option!');
     }
 }
 
-// Function to flash rainbow colors and then execute a callback function
-function flashRainbowColors(callback) {
-    const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-    let i = 0;
-    const interval = setInterval(() => {
-        document.body.style.backgroundColor = colors[i];
-        i = (i + 1) % colors.length;
-    }, 200);
-    setTimeout(() => {
-        clearInterval(interval);
-        document.body.style.backgroundColor = '';
-        if (callback) callback();
-    }, 2000);
+// Function to launch confetti
+function launchConfetti() {
+    const duration = 3 * 1000; // Duration in milliseconds
+    const animationEnd = Date.now() + duration;
+    const defaults = {
+        startVelocity: 30,
+        spread: 360,
+        ticks: 60,
+        gravity: 1,
+        colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#bbbb00']
+    };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    (function frame() {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return;
+
+        const particleCount = 50 * (timeLeft / duration);
+        confetti({
+            ...defaults,
+            particleCount: Math.floor(particleCount),
+            origin: {
+                x: Math.random(),
+                y: Math.random() - 0.2
+            }
+        });
+
+        requestAnimationFrame(frame);
+    })();
 }
 
 // Function to display the cat.gif initially
@@ -52,7 +77,6 @@ function displayCatHeart() {
     catHeartImage.alt = 'Cat Heart';
     catHeartImage.onload = () => {
         imageContainer.appendChild(catHeartImage);
-        document.getElementById('options').style.display = 'none';
     };
     catHeartImage.onerror = () => console.error('Failed to load cat-heart image.'); // Error handling
 }
