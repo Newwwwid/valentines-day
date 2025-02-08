@@ -2,7 +2,14 @@
 
 // Function to handle button click events
 function selectOption(option) {
+    const loveSound = document.getElementById('love-sound');
+    const noSound = document.getElementById('no-sound');
+
     if (option === 'yes') {
+        // Play love sound
+        loveSound.currentTime = 0; // Reset audio to start
+        loveSound.play();
+
         // Fade out the question and options
         const questionElement = document.getElementById('question');
         const optionsElement = document.getElementById('options');
@@ -21,7 +28,14 @@ function selectOption(option) {
         const noSound = document.getElementById('no-sound');
         noSound.currentTime = 0; // Reset audio to start
         noSound.play();
-        document.getElementById('no-button').innerText = 'You sure?';
+        const noButton = document.getElementById('no-button');
+        if (noButton.innerText === 'You sure?') {
+            noButton.innerText = 'Miss click? :('; // Change text on second click
+        } else {
+            noButton.innerText = 'You sure?'; // Change back to original text
+        }
+    } else {
+        alert('Invalid option!');
     }
 }
 
