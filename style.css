@@ -14,10 +14,14 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative; /* Set position relative for absolute positioning of children */
 }
 
 #image-container {
-    /* This container will hold the images */
+    position: absolute; /* Absolute positioning for image container */
+    top: 20%; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Centering adjustment */
 }
 
 #question {
@@ -28,7 +32,12 @@ body {
 
 #options {
     margin-top: 20px;
-    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    display: flex; /* Use flexbox for button layout */
+    justify-content: center; /* Center buttons */
+    position: absolute; /* Absolute positioning for options */
+    bottom: 20%; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Centering adjustment */
 }
 
 button {
@@ -49,7 +58,6 @@ button:hover {
     background-color: #FF4C7D; /* Change color on hover */
     box-shadow: 0 0 20px #FF4C7D, 0 0 40px #FF4C7D; /* Neon effect on hover */
 }
-
 /* Floating hearts effect */
 .heart {
     position: absolute;
