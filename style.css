@@ -1,10 +1,11 @@
 /* style.css */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Agency FB', sans-serif; /* Changed to Agency FB */
     text-align: center;
     margin: 0;
-    background-color: #FADADD;
+    background-color: #1a1a1a; /* Dark background color */
+    color: white; /* Text color for better contrast */
 }
 
 #container {
@@ -34,17 +35,18 @@ button {
     padding: 10px 20px;
     margin: 0 10px;
     font-size: 26px;
-    font-family: 'Sacramento', cursive;
-    background-color: #FB607F;
+    font-family: 'Agency FB', sans-serif; /* Changed to Agency FB */
+    background-color: #FB607F; /* Button background color */
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s; /* Improved transition */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Improved transition */
+    text-shadow: 0 0 5px #FF4C7D, 0 0 10px #FF4C7D; /* Neon effect */
 }
 
 button:hover {
     background-color: #FF4C7D; /* Change color on hover */
-    transform: translateY(-3px); /* Slightly lift button on hover */
+    box-shadow: 0 0 20px #FF4C7D, 0 0 30px #FF4C7D; /* Neon glow effect on hover */
 }
 
 /* Responsive Design */
