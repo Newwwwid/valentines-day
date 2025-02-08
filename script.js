@@ -19,10 +19,6 @@ function selectOption(option) {
         }, 500); // Match the duration of the CSS transition
     } else if (option === 'no') {
         document.getElementById('no-button').innerText = 'You sure?';
-        const yesButton = document.getElementById('yes-button');
-        const currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        const newSize = parseFloat(currentFontSize) * 2;
-        yesButton.style.fontSize = `${newSize}px`;
     } else {
         alert('Invalid option!');
     }
