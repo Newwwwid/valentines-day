@@ -69,11 +69,13 @@ function createActionButtons() {
     const buttonsContainer = document.createElement('div');
     buttonsContainer.id = 'action-buttons';
     
-   // Bye-Bye Sound Button
+   // Bye-Bye Sound Button with image
     const byeButton = document.createElement('button');
-    byeButton.innerHTML = '🎵';
+    byeButton.innerHTML = '<img src="byebutton.gif" alt="Bye Button" style="width: 50px; height: 50px;">'; // Use image instead of emoji
     byeButton.onclick = () => {
-        document.getElementById('bye-sound').play();
+        const byeSound = document.getElementById('bye-sound');
+        byeSound.currentTime = 0; // Reset audio to start
+        byeSound.play();
     };
     
     // Rose Button
