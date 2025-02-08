@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Valentine's Day Question</title>
+    <title>Valentine's Day Question</title> <!-- Added title -->
 </head>
 <body>
-    <div class="background-effect"></div>
     <main id="container">
-        <div class="card">
-            <section id="image-container"></section>
-            <section id="text-container">
-                <h1 id="question">Will you be my valentine?</h1>
-                <div id="options">
-                    <button id="yes-button" onclick="selectOption('yes')">Yes</button>
-                    <button id="no-button" onclick="selectOption('no')">No</button>
-                </div>
-            </section>
-        </div>
+        <section id="image-container"></section> <!-- Container for displaying images -->
+        <section id="text-container">
+            <h1 id="question">Will you be my valentine?</h1> <!-- Changed to h1 for semantic structure -->
+            <div id="options">
+                <button id="yes-button" onclick="selectOption('yes')">Yes</button>
+                <button id="no-button" onclick="selectOption('no')">No</button>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
