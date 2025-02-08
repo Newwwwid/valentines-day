@@ -1,98 +1,56 @@
-/* Updated style.css */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: #ffebf0;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+/* style.css */
 
-.background-effect {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #ffd6e7 0%, #ffb3c6 100%);
-    z-index: -1;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: #FADADD;
 }
 
 #container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s ease forwards;
-}
-
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    max-width: 500px;
-    width: 90%;
-    position: relative;
-    overflow: hidden;
+    height: 100vh;
 }
 
 #image-container {
-    margin: -40px -40px 20px;
-    max-height: 300px;
-    overflow: hidden;
-    border-radius: 15px 15px 0 0;
+    /* This container will hold the images */
 }
 
 #question {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
-    color: #c73866;
-    margin: 0 0 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s 0.3s ease forwards;
+    font-family: 'Sacramento', cursive;
+    font-size: 52px;
 }
 
 #options {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s 0.6s ease forwards;
+    margin-top: 20px;
 }
 
 button {
-    /* Previous button styles remain */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s 0.9s ease forwards;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 26px;
+    font-family: 'Sacramento', cursive;
+    background-color: #FB607F;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transition for smooth effects */
 }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+button:hover {
+    background-color: #FF4C7D; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #question {
+        font-size: 36px; /* Smaller font size on mobile */
     }
-}
-
-.heart-animation {
-    position: absolute;
-    pointer-events: none;
-    animation: heartFloat 1.5s ease-out forwards;
-}
-
-@keyframes heartFloat {
-    0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100px) scale(1.5);
+    button {
+        font-size: 20px; /* Smaller button font size on mobile */
     }
 }
