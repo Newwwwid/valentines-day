@@ -83,3 +83,36 @@ function displayCatHeart() {
 
 // Display the cat.gif initially
 displayCat();
+// Updated script.js
+function selectOption(option) {
+    if (option === 'yes') {
+        createHearts();
+        document.getElementById('question').style.display = 'none';
+        setTimeout(() => {
+            displayCatHeart();
+        }, 1000);
+    } else if (option === 'no') {
+        document.getElementById('no-button').innerText = 'You sure?';
+        const yesButton = document.getElementById('yes-button');
+        const currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
+        const newSize = parseFloat(currentFontSize) * 2;
+        yesButton.style.fontSize = `${newSize}px`;
+    }
+}
+
+function createHearts() {
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.className = 'heart-animation';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDelay = Math.random() * 0.5 + 's';
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 1500);
+    }
+}
+
+// Keep existing displayCat and displayCatHeart functions
