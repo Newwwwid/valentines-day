@@ -18,7 +18,7 @@ function selectOption(option) {
             launchConfetti(); // Trigger confetti effect
         }, 500); // Match the duration of the CSS transition
     } else if (option === 'no') {
-        document.getElementById('no-button').innerText = 'You sure?';
+        document.getElementById('no-button').innerText = 'miss click?';
     } else {
         alert('Invalid option!');
     }
