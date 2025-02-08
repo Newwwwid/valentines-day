@@ -1,12 +1,9 @@
 // script.js
 
-// Function to handle button click events
 function selectOption(option) {
     if (option === 'yes') {
-        flashRainbowColors(() => {
-            document.getElementById('question').style.display = 'none';
-            displayCatHeart();
-        });
+        document.getElementById('question').style.display = 'none';
+        displayCatHeart();
     } else if (option === 'no') {
         document.getElementById('no-button').innerText = 'You sure?';
         const yesButton = document.getElementById('yes-button');
@@ -18,32 +15,17 @@ function selectOption(option) {
     }
 }
 
-// Function to flash rainbow colors and then execute a callback function
-function flashRainbowColors(callback) {
-    const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-    let i = 0;
-    const interval = setInterval(() => {
-        document.body.style.backgroundColor = colors[i];
-        i = (i + 1) % colors.length;
-    }, 200);
-    setTimeout(() => {
-        clearInterval(interval);
-        document.body.style.backgroundColor = '';
-        if (callback) callback();
-    }, 2000);
-}
+// Removed flashRainbowColors function
 
-// Function to display the cat.gif initially
 function displayCat() {
     const imageContainer = document.getElementById('image-container');
     const catImage = new Image();
     catImage.src = 'cat.gif';
     catImage.alt = 'Cat';
     catImage.onload = () => imageContainer.appendChild(catImage);
-    catImage.onerror = () => console.error('Failed to load cat image.'); // Error handling
+    catImage.onerror = () => console.error('Failed to load cat image.');
 }
 
-// Function to display the cat-heart.gif
 function displayCatHeart() {
     document.getElementById('image-container').innerHTML = '';
     const imageContainer = document.getElementById('image-container');
@@ -54,8 +36,7 @@ function displayCatHeart() {
         imageContainer.appendChild(catHeartImage);
         document.getElementById('options').style.display = 'none';
     };
-    catHeartImage.onerror = () => console.error('Failed to load cat-heart image.'); // Error handling
+    catHeartImage.onerror = () => console.error('Failed to load cat-heart image.');
 }
 
-// Display the cat.gif initially
 displayCat();
