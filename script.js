@@ -26,7 +26,7 @@ function selectOption(option) {
 
 // Function to launch confetti
 function launchConfetti() {
-    const duration = 3 * 1000; // Duration in milliseconds
+    const duration = 3 * 800; // Duration in milliseconds
     const animationEnd = Date.now() + duration;
     const defaults = {
         startVelocity: 30,
