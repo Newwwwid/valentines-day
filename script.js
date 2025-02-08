@@ -15,47 +15,13 @@ function selectOption(option) {
             questionElement.style.display = 'none';
             optionsElement.style.display = 'none';
             displayCatHeart();
-            launchConfetti(); // Trigger confetti effect
-        }, 500); // Match the duration of the CSS transition
+            createFloatingHearts(); // Trigger floating hearts effect
+        }, 500); // Match the duration of the // Match the duration of the CSS transition
     } else if (option === 'no') {
         document.getElementById('no-button').innerText = 'You sure?';
     } else {
         alert('Invalid option!');
     }
-}
-
-// Function to launch confetti
-function launchConfetti() {
-    const duration = 3 * 1000; // Duration in milliseconds
-    const animationEnd = Date.now() + duration;
-    const defaults = {
-        startVelocity: 30,
-        spread: 360,
-        ticks: 60,
-        gravity: 1,
-        colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#bbbb00']
-    };
-
-    function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    (function frame() {
-        const timeLeft = animationEnd - Date.now();
-        if (timeLeft <= 0) return;
-
-        const particleCount = 50 * (timeLeft / duration);
-        confetti({
-            ...defaults,
-            particleCount: Math.floor(particleCount),
-            origin: {
-                x: Math.random(),
-                y: Math.random() - 0.2
-            }
-        });
-
-        requestAnimationFrame(frame);
-    })();
 }
 
 // Function to display the cat.gif initially
