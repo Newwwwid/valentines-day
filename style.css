@@ -1,7 +1,7 @@
 /* style.css */
 
 body {
-    font-family: 'Agency FB', sans-serif; /* Changed to Agency FB */
+    font-family: 'Agency FB', sans-serif; /* Changed font to Agency FB */
     text-align: center;
     margin: 0;
     background-color: #1a1a1a; /* Dark background color */
@@ -21,7 +21,7 @@ body {
 }
 
 #question {
-    font-family: 'Sacramento', cursive;
+    font-family: 'Agency FB', sans-serif; /* Changed font to Agency FB */
     font-size: 52px;
     transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
@@ -35,18 +35,41 @@ button {
     padding: 10px 20px;
     margin: 0 10px;
     font-size: 26px;
-    font-family: 'Agency FB', sans-serif; /* Changed to Agency FB */
-    background-color: #FB607F; /* Button background color */
+    font-family: 'Agency FB', sans-serif; /* Changed font to Agency FB */
+    background-color: #FB607F; /* Base color for buttons */
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s; /* Improved transition */
-    text-shadow: 0 0 5px #FF4C7D, 0 0 10px #FF4C7D; /* Neon effect */
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
     background-color: #FF4C7D; /* Change color on hover */
-    box-shadow: 0 0 20px #FF4C7D, 0 0 30px #FF4C7D; /* Neon glow effect on hover */
+    box-shadow: 0 0 20px #FF4C7D, 0 0 40px #FF4C7D; /* Neon effect on hover */
+}
+
+/* Floating hearts effect */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
