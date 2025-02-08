@@ -22,10 +22,12 @@ body {
 #question {
     font-family: 'Sacramento', cursive;
     font-size: 52px;
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
 
 #options {
     margin-top: 20px;
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
 
 button {
@@ -37,12 +39,16 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* Added transition for smooth effects */
+    transition: background-color 0.3s, transform 0.2s; /* Improved transition */
 }
 
 button:hover {
     background-color: #FF4C7D; /* Change color on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    transform: translateY(-3px); /* Slightly lift button on hover */
+}
+
+button:active {
+    transform: translateY(1px); /* Slightly lower button on click */
 }
 
 /* Responsive Design */
