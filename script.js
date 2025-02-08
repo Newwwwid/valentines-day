@@ -4,7 +4,8 @@
 function selectOption(option) {
     const loveSound = document.getElementById('love-sound');
     const noSound = document.getElementById('no-sound');
-
+    const byeSound = document.getElementById('bye-sound');
+    
     if (option === 'yes') {
         // Play love sound
         loveSound.currentTime = 0; // Reset audio to start
@@ -142,4 +143,12 @@ function displayCatHeart() {
         createFloatingHearts();
     };
     catHeartImage.onerror = () => console.error('Failed to load cat-heart image.');
+}
+// Function to randomly position an element
+function positionElement(element) {
+    const x = Math.random() * (window.innerWidth - 100); // Adjust for element width
+    const y = Math.random() * (window.innerHeight - 100); // Adjust for element height
+    element.style.position = 'absolute';
+    element.style.left = `${x}px`;
+    element.style.top = `${y}px`;
 }
