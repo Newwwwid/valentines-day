@@ -25,9 +25,10 @@ function selectOption(option) {
             createFloatingHearts(); // Trigger floating hearts effect
         }, 500); // Match the duration of the // Match the duration of the CSS transition
     } else if (option === 'no') {
-        const noSound = document.getElementById('no-sound');
+        // Play no sound
         noSound.currentTime = 0; // Reset audio to start
         noSound.play();
+
         const noButton = document.getElementById('no-button');
         if (noButton.innerText === 'You sure?') {
             noButton.innerText = 'Miss click? :('; // Change text on second click
